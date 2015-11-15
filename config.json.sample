@@ -1,0 +1,10 @@
+{
+    "trello": {
+        "key": "",
+        "secret": ""
+    },
+    "toggl": {
+        "key": "",
+        "secret": ""
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "21k-trello-to-toggl",
+  "version": "0.0.1",
+  "description": "Zap trello cards into toggl when they are finished.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "trello",
+    "21k",
+    "toggl",
+    "productivity"
+  ],
+  "author": "André Abadesso <andre@lab21k.com.br>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.5.0",
+    "node-trello": "^1.1.2"
+  }
+}
