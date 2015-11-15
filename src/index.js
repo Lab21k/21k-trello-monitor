@@ -1,10 +1,12 @@
 'use strict';
 
-const   Trello    = require('node-trello'),
-        fs        = require('fs'),
-        keys      = JSON.parse(fs.readFileSync(__dirname + '/../config.json')),
-        board     = 'f8fRBNOM',
-        async     = require('async');
+const   Trello = require('node-trello'),
+        fs     = require('fs'),
+        keys   = JSON.parse(fs.readFileSync(__dirname + '/../config.json')),
+        board  = 'f8fRBNOM',
+        async  = require('async'),
+        redis  = require('redis'),
+        redisClient = redis.createClient();
 
 let trelloKeys = keys.trello;
 let trello = new Trello(trelloKeys.key, trelloKeys.secret);
@@ -63,5 +65,6 @@ trello.get('/1/boards/' + board + '/cards', function(err, data) {
 
     async.series(fnsGetComments, (err, results) => {
         console.log(cardsModulos);
+        redisClient.set('trello', JSON.stringify(cardsModulos));
     });
 });
